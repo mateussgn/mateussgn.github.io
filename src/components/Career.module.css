@@ -1,0 +1,109 @@
+.career {
+  padding-top: 40px;
+  padding-bottom: 104px;
+}
+
+.title {
+  margin: 0 0 8px;
+  font-size: 32px;
+}
+
+.note {
+  margin: 0 0 32px;
+  max-width: 60ch;
+  font-size: 15px;
+  color: var(--color-muted);
+}
+
+/* On narrow screens the chart keeps its width and scrolls sideways. */
+.scroller {
+  overflow-x: auto;
+}
+
+.chart,
+.axis {
+  min-width: 760px;
+}
+
+.chart {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 14px 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.row:last-child {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.label {
+  flex: 0 0 230px;
+}
+
+.label p {
+  margin: 0;
+}
+
+.company {
+  font-weight: 600;
+}
+
+.meta {
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.track {
+  flex: 1 1 auto;
+  position: relative;
+  height: 14px;
+}
+
+.bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 7px;
+}
+
+.regular {
+  background: var(--color-bar);
+}
+
+.intern {
+  border: 2px solid var(--color-bar);
+}
+
+.current {
+  background: var(--color-accent);
+}
+
+.axis {
+  display: flex;
+  gap: 24px;
+  padding-top: 10px;
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.axisSpacer {
+  flex: 0 0 230px;
+}
+
+.axisTrack {
+  flex: 1 1 auto;
+  position: relative;
+  height: 20px;
+}
+
+.axisTrack span {
+  position: absolute;
+  top: 0;
+}

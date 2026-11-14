@@ -1,0 +1,12 @@
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 24px;
+  padding-bottom: 40px;
+  font-size: 14px;
+  color: var(--color-muted);
+  /* The rule spans the content width, inside the gutters. */
+  background: linear-gradient(var(--color-line), var(--color-line)) no-repeat top / calc(100% - 2 * var(--page-gutter)) 1px;
+}
