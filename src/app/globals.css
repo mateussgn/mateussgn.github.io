@@ -1,12 +1,12 @@
 :root {
-  --color-bg: #0f2a30;
+  --color-bg: #0b1f1c;
   --color-text: #e9efef;
   --color-text-soft: #c7d5d7;
-  --color-muted: #9db3b6;
-  --color-line: #2a4a50;
-  --color-bar: #6e9ca2;
+  --color-muted: #9ab0ab;
+  --color-line: #223b37;
+  --color-bar: #6a948c;
   --color-accent: #f2c14e;
-  --color-on-accent: #0f2a30;
+  --color-on-accent: #0b1f1c;
 
   --font-display: var(--font-newsreader), Georgia, serif;
   --font-body: var(--font-instrument-sans), system-ui, sans-serif;
