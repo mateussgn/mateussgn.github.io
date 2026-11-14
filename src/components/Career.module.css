@@ -15,14 +15,8 @@
   color: var(--color-muted);
 }
 
-/* On narrow screens the chart keeps its width and scrolls sideways. */
 .scroller {
   overflow-x: auto;
-}
-
-.chart,
-.axis {
-  min-width: 760px;
 }
 
 .chart {
@@ -106,4 +100,39 @@
 .axisTrack span {
   position: absolute;
   top: 0;
+}
+
+/*
+ * Narrow screens: each job's label sits above its bar and the bars use the
+ * full width, so the whole chart fits without sideways scrolling.
+ */
+@media (max-width: 720px) {
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .label {
+    flex: none;
+  }
+
+  .track {
+    flex: none;
+    width: 100%;
+    height: 10px;
+  }
+
+  .axis {
+    gap: 0;
+  }
+
+  .axisSpacer {
+    display: none;
+  }
+
+  /* Every other year, so the labels don't collide. */
+  .oddYear {
+    display: none;
+  }
 }
