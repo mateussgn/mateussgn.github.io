@@ -7,7 +7,7 @@ import "./globals.css";
 const newsreader = Newsreader({
   subsets: ["latin"],
   axes: ["opsz"],
-  style: ["normal"],
+  style: ["normal", "italic"],
   variable: "--font-newsreader",
   display: "swap",
 });
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     locale: "en_US",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title,
     description,
     creator: "@mateussgn",
