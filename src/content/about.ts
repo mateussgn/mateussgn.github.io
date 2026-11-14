@@ -7,8 +7,7 @@ export const about: About = {
     "I like backend work most: the part where a system has to keep working when traffic, data and teams grow.",
   ],
   details: [
-    // TODO(Mateus): confirm the institution and graduation year before merging.
-    { label: "Education", value: "B.Sc. in Computer Engineering, [UNIVERSITY]" },
+    { label: "Education", value: "B.Sc. in Computer Engineering, UNIFG (Jan 2026)" },
     { label: "Certification", value: "Microsoft Certified: Azure Fundamentals (AZ-900)" },
     { label: "Languages", value: "Portuguese (native), English (full professional)" },
   ],
