@@ -6,7 +6,7 @@ export const profile: Profile = {
   jobTitle: "Senior Software Engineer",
   headline: "I design and build systems that scale.",
   intro:
-    "Senior software engineer. Java and Spring Boot on the backend, React on the front. Over six years shipping software, most of it for remote teams in the US, Portugal and Brazil.",
+    "Senior software engineer. Java and Spring Boot on the backend, React on the front. Over seven years shipping software, most of it for remote teams in the US, Portugal and Brazil.",
   email: "mateus@mateussgn.com",
   location: "Brazil (UTC−3)",
   facts: [
