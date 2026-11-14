@@ -63,6 +63,18 @@ h3 {
   padding: 0 var(--page-gutter);
 }
 
+.section-title {
+  margin: 0 0 8px;
+  font-size: 32px;
+}
+
+.section-note {
+  margin: 0 0 40px;
+  max-width: 60ch;
+  font-size: 15px;
+  color: var(--color-muted);
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;

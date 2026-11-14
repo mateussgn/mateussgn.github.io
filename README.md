@@ -38,6 +38,9 @@ Text and data live in `src/content/`, separate from the layout:
 - `profile.ts`: name, headline, intro, quick facts and links
 - `experience.ts`: jobs for the career timeline (newest first, dates as `YYYY-MM`)
 - `work.ts`: selected work cases
+- `principles.ts`: the "How I work" section
+- `skills.ts`: skill groups
+- `about.ts`: about text, education and languages, and the freelance section
 
 The timeline positions are computed from the dates, so adding a job is just adding an entry.
 

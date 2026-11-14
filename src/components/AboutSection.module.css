@@ -1,0 +1,48 @@
+.section {
+  padding-top: 24px;
+  padding-bottom: 96px;
+}
+
+.layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 72px;
+  margin-top: 24px;
+}
+
+.text {
+  flex: 1 1 480px;
+  min-width: 0;
+}
+
+.text p {
+  margin: 0 0 18px;
+  max-width: 60ch;
+  font-size: 18px;
+  color: var(--color-text-soft);
+}
+
+.details {
+  flex: 0 1 380px;
+  min-width: 0;
+  margin: 0;
+  font-size: 15px;
+}
+
+.detail {
+  padding: 14px 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.detail:last-child {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.detail dt {
+  color: var(--color-muted);
+}
+
+.detail dd {
+  margin: 2px 0 0;
+  font-size: 17px;
+}

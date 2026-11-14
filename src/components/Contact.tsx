@@ -12,7 +12,8 @@ export function Contact({ profile }: ContactProps) {
         Hiring a backend or full-stack engineer?
       </h2>
       <p className={styles.lead}>
-        Full-time or contract, remote. I also take on freelance work in Java and Spring.
+        Full-time or contract, remote. For a freelance project, a few lines on the scope and timeline
+        are enough to start.
       </p>
       <p className={styles.email}>
         <a href={`mailto:${profile.email}`}>{profile.email}</a>

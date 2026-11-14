@@ -14,6 +14,7 @@ export function Header({ name, cvHref }: HeaderProps) {
       <nav aria-label="Main" className={styles.nav}>
         <a href="#work">Work</a>
         <a href="#career">Career</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
         {cvHref && (
           <a href={cvHref} className={styles.cv} download>
