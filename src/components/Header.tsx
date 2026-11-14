@@ -8,8 +8,11 @@ interface HeaderProps {
 export function Header({ name, cvHref }: HeaderProps) {
   return (
     <header className={`container ${styles.header}`}>
-      <a href="#main" className={styles.brand}>
-        {name}
+      <a href="/" className={styles.brand}>
+        <span className={styles.logo} aria-hidden="true">
+          msgn
+        </span>
+        <span className={styles.name}>{name}</span>
       </a>
       <nav aria-label="Main" className={styles.nav}>
         <a href="#work">Work</a>

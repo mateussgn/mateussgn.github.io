@@ -9,9 +9,27 @@
 }
 
 .brand {
-  font-family: var(--font-display);
-  font-size: 24px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 14px;
   text-decoration: none;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.name {
+  font-size: 15px;
+  color: var(--color-muted);
+}
+
+.brand:hover .name {
+  color: var(--color-accent);
 }
 
 .nav {
