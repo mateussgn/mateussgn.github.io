@@ -38,6 +38,26 @@ export interface Job {
   stints: Stint[];
 }
 
+export interface SkillGroup {
+  name: string;
+  items: string[];
+}
+
+export interface Principle {
+  title: string;
+  body: string;
+}
+
+export interface About {
+  paragraphs: string[];
+  details: Fact[];
+}
+
+export interface Freelance {
+  intro: string;
+  offers: string[];
+}
+
 export interface WorkCase {
   company: string;
   from: YearMonth;

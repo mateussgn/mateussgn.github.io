@@ -1,6 +1,13 @@
 import { existsSync } from "node:fs";
 import path from "node:path";
+import { AboutSection } from "@/components/AboutSection";
 import { Career } from "@/components/Career";
+import { FreelanceSection } from "@/components/FreelanceSection";
+import { HowIWork } from "@/components/HowIWork";
+import { Skills } from "@/components/Skills";
+import { about, freelance } from "@/content/about";
+import { principles } from "@/content/principles";
+import { skills } from "@/content/skills";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -40,6 +47,10 @@ export default function HomePage() {
         <Hero profile={profile} cvHref={cvHref} />
         <Career jobs={experience} />
         <SelectedWork cases={work} />
+        <HowIWork principles={principles} />
+        <Skills groups={skills} />
+        <AboutSection about={about} />
+        <FreelanceSection freelance={freelance} />
         <Contact profile={profile} />
       </main>
       <Footer profile={profile} />
