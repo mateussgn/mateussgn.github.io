@@ -54,7 +54,11 @@ export function Career({ jobs }: CareerProps) {
           <div className={styles.axisSpacer} />
           <div className={styles.axisTrack}>
             {years.map(({ year, left }) => (
-              <span key={year} style={{ left: `${left}%` }}>
+              <span
+                key={year}
+                className={year % 2 === 1 ? styles.oddYear : undefined}
+                style={{ left: `${left}%` }}
+              >
                 {year}
               </span>
             ))}
