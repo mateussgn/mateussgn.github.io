@@ -28,7 +28,7 @@ export function Career({ jobs }: CareerProps) {
         my internship.
       </p>
 
-      <div className={styles.scroller}>
+      <div>
         <ol className={styles.chart}>
           {rows.map(({ job, bars }) => (
             <li key={job.company} className={styles.row}>
