@@ -7,7 +7,7 @@ interface FreelanceSectionProps {
 
 export function FreelanceSection({ freelance }: FreelanceSectionProps) {
   return (
-    <section id="freelance" className={`container ${styles.section}`} aria-labelledby="freelance-title">
+    <section id="freelance" className={`container section ${styles.section}`} aria-labelledby="freelance-title">
       <div className={styles.intro}>
         <h2 id="freelance-title" className="section-title">
           Freelance

@@ -22,7 +22,11 @@ export const skills: SkillGroup[] = [
     items: ["JUnit", "Mockito", "JaCoCo", "TestContainers", "Cucumber", "End-to-end tests"],
   },
   {
+    name: "AI tools",
+    items: ["Claude Code", "GitHub Copilot", "AI-assisted prototyping and code review"],
+  },
+  {
     name: "Practices",
-    items: ["Clean Code", "Design patterns", "C4 model", "Code review", "Scrum", "Kanban", "SAFe", "AI-assisted development"],
+    items: ["Clean Code", "Design patterns", "C4 model", "Code review", "Scrum", "Kanban", "SAFe"],
   },
 ];

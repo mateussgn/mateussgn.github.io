@@ -3,6 +3,7 @@
   --color-text: #e9efef;
   --color-text-soft: #c7d5d7;
   --color-muted: #9ab0ab;
+  --color-band: #0f2723;
   --color-line: #223b37;
   --color-bar: #6a948c;
   --color-accent: #f2c14e;
@@ -63,6 +64,23 @@ h3 {
   padding: 0 var(--page-gutter);
 }
 
+/* Vertical rhythm shared by every content section. */
+.section {
+  padding-top: 88px;
+  padding-bottom: 88px;
+}
+
+/*
+ * Every other section sits on a slightly lighter band that runs edge to edge,
+ * so sections read as separate blocks. The shadow extends the background past
+ * the centered container; clip-path keeps it from spilling up or down.
+ */
+.band {
+  background: var(--color-band);
+  box-shadow: 0 0 0 100vmax var(--color-band);
+  clip-path: inset(0 -100vmax);
+}
+
 .section-title {
   margin: 0 0 8px;
   font-size: 32px;
@@ -102,6 +120,11 @@ h3 {
 @media (max-width: 640px) {
   :root {
     --page-gutter: 16px;
+  }
+
+  .section {
+    padding-top: 56px;
+    padding-bottom: 56px;
   }
 }
 

@@ -19,7 +19,7 @@ export function Career({ jobs }: CareerProps) {
   const firstYear = years[0]?.year;
 
   return (
-    <section id="career" className={`container ${styles.career}`} aria-labelledby="career-title">
+    <section id="career" className="container section band" aria-labelledby="career-title">
       <h2 id="career-title" className={styles.title}>
         Shipping software since {firstYear}
       </h2>

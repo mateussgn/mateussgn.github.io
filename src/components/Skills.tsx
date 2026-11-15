@@ -7,7 +7,7 @@ interface SkillsProps {
 
 export function Skills({ groups }: SkillsProps) {
   return (
-    <section id="skills" className={`container ${styles.section}`} aria-labelledby="skills-title">
+    <section id="skills" className="container section" aria-labelledby="skills-title">
       <h2 id="skills-title" className="section-title">
         Skills
       </h2>

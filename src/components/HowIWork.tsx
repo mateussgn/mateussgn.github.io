@@ -7,7 +7,7 @@ interface HowIWorkProps {
 
 export function HowIWork({ principles }: HowIWorkProps) {
   return (
-    <section id="how-i-work" className={`container ${styles.section}`} aria-labelledby="how-title">
+    <section id="how-i-work" className="container section band" aria-labelledby="how-title">
       <h2 id="how-title" className="section-title">
         How I work
       </h2>

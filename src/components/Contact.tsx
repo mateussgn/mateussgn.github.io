@@ -1,31 +1,20 @@
 import type { Profile } from "@/content/types";
+import { ContactLinks } from "./ContactLinks";
 import styles from "./Contact.module.css";
 
 interface ContactProps {
   profile: Profile;
+  cvHref?: string;
 }
 
-export function Contact({ profile }: ContactProps) {
+export function Contact({ profile, cvHref }: ContactProps) {
   return (
-    <section id="contact" className={`container ${styles.contact}`} aria-labelledby="contact-title">
-      <h2 id="contact-title" className={styles.title}>
-        Hiring a backend or full-stack engineer?
-      </h2>
+    <section id="contact" className="container section band" aria-label="Contact">
       <p className={styles.lead}>
-        Full-time or contract, remote. For a freelance project, a few lines on the scope and timeline
-        are enough to start.
+        Open to remote roles, full-time or contract. For a freelance project, a few lines on the
+        scope and timeline are enough to start.
       </p>
-      <p className={styles.email}>
-        <a href={`mailto:${profile.email}`}>{profile.email}</a>
-      </p>
-      <p className={styles.links}>
-        <a href={profile.links.linkedin} rel="me noopener" target="_blank">
-          LinkedIn
-        </a>
-        <a href={profile.links.github} rel="me noopener" target="_blank">
-          GitHub
-        </a>
-      </p>
+      <ContactLinks profile={profile} cvHref={cvHref} className={styles.links} />
     </section>
   );
 }

@@ -42,7 +42,7 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
       />
-      <Header name={profile.name} cvHref={cvHref} />
+      <Header name={profile.name} />
       <main id="main">
         <Hero profile={profile} cvHref={cvHref} />
         <Career jobs={experience} />
@@ -51,7 +51,7 @@ export default function HomePage() {
         <Skills groups={skills} />
         <AboutSection about={about} />
         <FreelanceSection freelance={freelance} />
-        <Contact profile={profile} />
+        <Contact profile={profile} cvHref={cvHref} />
       </main>
       <Footer profile={profile} />
     </>
