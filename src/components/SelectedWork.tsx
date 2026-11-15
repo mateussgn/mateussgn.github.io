@@ -8,9 +8,9 @@ interface SelectedWorkProps {
 
 export function SelectedWork({ cases }: SelectedWorkProps) {
   return (
-    <section id="work" className={`container ${styles.work}`} aria-labelledby="work-title">
+    <section id="work" className="container section" aria-labelledby="work-title">
       <h2 id="work-title" className={styles.title}>
-        Selected work
+        Key projects
       </h2>
       <p className={styles.note}>
         Client work is under NDA, so these describe the problem and my part in it, not the code.

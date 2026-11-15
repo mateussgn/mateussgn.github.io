@@ -7,8 +7,8 @@ export const work: WorkCase[] = [
     from: "2025-04",
     title: "An E2E suite that went from 10% to 90% passing",
     description:
-      "Paid down the test-code debt that kept end-to-end runs failing, so a red build points to a real problem again. Also built the permissions that let trial accounts preview paid features.",
-    stack: ["Java", "Spring", "React", "E2E tests", "GraphQL"],
+      "Paid down the test-code debt that kept end-to-end runs failing, so a red build points to a real problem again. Also built the permissions that let trial accounts preview paid features, using Claude Code to prototype and work through the harder parts.",
+    stack: ["Java", "Spring", "React", "E2E tests", "GraphQL", "Claude Code"],
   },
   {
     company: "Sensedia",

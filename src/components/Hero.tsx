@@ -1,4 +1,5 @@
 import type { Profile } from "@/content/types";
+import { ContactLinks } from "./ContactLinks";
 import styles from "./Hero.module.css";
 
 interface HeroProps {
@@ -14,16 +15,7 @@ export function Hero({ profile, cvHref }: HeroProps) {
           {profile.headline}
         </h1>
         <p className={styles.intro}>{profile.intro}</p>
-        <div className={styles.actions}>
-          <a href="#contact" className={styles.primary}>
-            Get in touch
-          </a>
-          {cvHref && (
-            <a href={cvHref} className={styles.secondary} download>
-              Download CV
-            </a>
-          )}
-        </div>
+        <ContactLinks profile={profile} cvHref={cvHref} className={styles.contacts} />
       </div>
       <dl className={styles.facts}>
         {profile.facts.map((fact) => (
