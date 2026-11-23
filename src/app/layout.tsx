@@ -1,20 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Sans, Newsreader } from "next/font/google";
+import { Geist, Newsreader } from "next/font/google";
 import { profile } from "@/content/profile";
 import { isProduction, siteUrl } from "@/lib/site";
 import "./globals.css";
 
-const newsreader = Newsreader({
+const geist = Geist({
   subsets: ["latin"],
-  axes: ["opsz"],
-  style: ["normal", "italic"],
-  variable: "--font-newsreader",
+  variable: "--font-geist",
   display: "swap",
 });
 
-const instrumentSans = Instrument_Sans({
+// Only the italic cut is used, for the "msgn" logo.
+const newsreader = Newsreader({
   subsets: ["latin"],
-  variable: "--font-instrument-sans",
+  style: ["italic"],
+  weight: ["400"],
+  variable: "--font-newsreader",
   display: "swap",
 });
 
@@ -46,13 +47,27 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0b1f1c",
-  colorScheme: "dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f2f3f1" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b1f1c" },
+  ],
+  colorScheme: "light dark",
 };
+
+/**
+ * Applies a theme the visitor picked earlier before the page paints, so it
+ * never flashes the wrong colors. Without a stored pick, the CSS follows the
+ * device setting.
+ */
+const themeScript = `try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${newsreader.variable} ${instrumentSans.variable}`}>
+    // The theme script may set data-theme before React hydrates.
+    <html lang="en" className={`${geist.variable} ${newsreader.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>
         <a className="skip-link" href="#main">
           Skip to content

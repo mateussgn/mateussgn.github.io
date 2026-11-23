@@ -35,18 +35,22 @@ npm start        # serves out/ to check the production build
 
 Text and data live in `src/content/`, separate from the layout:
 
-- `profile.ts`: name, headline, intro, quick facts and links
-- `experience.ts`: jobs for the career timeline (newest first, dates as `YYYY-MM`)
-- `work.ts`: selected work cases
-- `principles.ts`: the "How I work" section
-- `skills.ts`: skill groups
-- `about.ts`: about text, education and languages, and the freelance section
+- `profile.ts`: name, headline, intro, hero tags and links
+- `stack.ts`: the tech stack chips, in display order
+- `work.ts`: the Key projects cards (each names the drawing it shows)
+- `experience.ts`: jobs for the Experience list (newest first, dates as `YYYY-MM`)
+- `about.ts`: the About text, education and certification
 
-The timeline positions are computed from the dates, so adding a job is just adding an entry.
+`principles.ts` and the `freelance` export in `about.ts` aren't shown right now; they're kept so those sections can come back.
 
-## CV
+## Light and dark
 
-Put the PDF at `public/cv/Mateus-Santana-CV.pdf`. The "Download CV" links appear only once that file exists.
+The site follows the visitor's device setting, and the sun/moon button in the header overrides it (the choice is stored in the browser). Both palettes are CSS variables at the top of `src/app/globals.css`; components only use the variables.
+
+## CV and photo
+
+- CV: put the PDF at `public/cv/Mateus-Santana-CV.pdf`. The "Download CV" links appear only once that file exists.
+- Photo: put a square JPEG (600 × 600 px or more) at `public/photo/mateus-santana.jpg`. Until then, the hero shows the msgn logo in its place.
 
 ## Project layout
 
@@ -55,5 +59,5 @@ src/
   app/          layout, page, robots.txt and sitemap
   components/   one component per section, each with its CSS module
   content/      editable content and its types
-  lib/          dates, timeline layout and environment settings
+  lib/          dates, fonts for generated images and environment settings
 ```

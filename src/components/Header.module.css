@@ -1,44 +1,73 @@
 .header {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   gap: 16px;
-  padding-top: 28px;
-  padding-bottom: 28px;
-}
-
-.brand {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 14px;
-  text-decoration: none;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  /* Rule under the header, inside the page gutters. */
+  background: linear-gradient(var(--line), var(--line)) no-repeat bottom / calc(100% - 2 * var(--page-gutter)) 1px;
 }
 
 .logo {
-  font-family: var(--font-display);
+  font-family: var(--font-logo);
   font-style: italic;
-  font-size: 30px;
+  font-size: 28px;
   line-height: 1;
   letter-spacing: -0.03em;
-}
-
-.name {
-  font-size: 15px;
-  color: var(--color-muted);
-}
-
-.brand:hover .name {
-  color: var(--color-accent);
+  text-decoration: none;
 }
 
 .nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px 28px;
+  gap: 4px 32px;
   font-size: 15px;
+  font-weight: 500;
 }
 
 .nav a {
   text-decoration: none;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.github {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+@media (max-width: 760px) {
+  .wideOnly {
+    display: none;
+  }
+
+  .nav {
+    gap: 18px;
+    font-size: 14px;
+  }
+
+  .nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .logo {
+    font-size: 26px;
+  }
 }

@@ -1,0 +1,88 @@
+.section {
+  padding-bottom: 72px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.list:focus-visible {
+  outline-offset: 6px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px 6px 6px;
+  border-radius: var(--radius-control);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  white-space: nowrap;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.shortName {
+  display: none;
+}
+
+/* Phones: two rows that scroll sideways, running past the right edge to hint at more. */
+@media (max-width: 640px) {
+  .section {
+    padding-bottom: 48px;
+  }
+
+  .list {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(2, auto);
+    justify-content: start;
+    gap: 8px;
+    margin-right: calc(-1 * var(--page-gutter));
+    padding: 0 var(--page-gutter) 4px 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    font-size: 13px;
+  }
+
+  .list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .chip {
+    gap: 7px;
+    padding: 5px 10px 5px 5px;
+    border-radius: 9px;
+  }
+
+  .badge {
+    width: 22px;
+    height: 22px;
+    font-size: 10px;
+  }
+
+  .longName {
+    display: none;
+  }
+
+  .shortName {
+    display: inline;
+  }
+}

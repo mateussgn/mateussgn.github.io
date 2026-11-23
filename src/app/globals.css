@@ -1,20 +1,108 @@
+/*
+ * Theme tokens. Light is the default; dark applies when the visitor's device
+ * prefers it, unless they picked light with the header toggle. A manual pick is
+ * stored as data-theme on <html> (see the script in layout.tsx).
+ */
 :root {
-  --color-bg: #0b1f1c;
-  --color-text: #e9efef;
-  --color-text-soft: #c7d5d7;
-  --color-muted: #9ab0ab;
-  --color-band: #0f2723;
-  --color-line: #223b37;
-  --color-bar: #6a948c;
-  --color-accent: #f2c14e;
-  --color-on-accent: #0b1f1c;
+  --bg: #f2f3f1;
+  --surface: #ffffff;
+  --surface-muted: #e7ebe7;
+  --line: #dce0dc;
+  --line-strong: #c9cfca;
+  --divider: #e3e7e3;
+  --text: #121816;
+  --text-soft: #4b5652;
+  --text-muted: #6b7570;
+  --faint: #9aa49f;
+  --bar-dim: #b9c2bd;
+  /* Dark-on-light in light mode, yellow-on-dark in dark mode. */
+  --strong: #0b1f1c;
+  --on-strong: #ffffff;
+  --highlight: #fbf3dc;
+  --link-hover: #0b6b5a;
+  --focus: #0b6b5a;
+  --yellow: #f2c14e;
+  /* The Claude Code chip badge: pine on light pages, yellow on dark ones. */
+  --brand-badge-bg: #0b1f1c;
+  --brand-badge-text: #f2c14e;
 
-  --font-display: var(--font-newsreader), Georgia, serif;
-  --font-body: var(--font-instrument-sans), system-ui, sans-serif;
+  --contact-bg: #0b1f1c;
+  --contact-text: #e9efef;
+  --contact-soft: #b9c7c3;
+  --contact-muted: #9ab0ab;
+  --contact-line: #223b37;
+  --contact-button-bg: #f2c14e;
+  --contact-button-text: #0b1f1c;
 
-  --page-max: 1180px;
+  --font-sans: var(--font-geist), system-ui, sans-serif;
+  --font-logo: var(--font-newsreader), Georgia, serif;
+
+  --page-max: 1120px;
   --page-gutter: 32px;
+  --radius-card: 14px;
+  --radius-control: 10px;
 
+  color-scheme: light;
+}
+
+/* Dark values, written once and applied by either rule below. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b1f1c;
+    --surface: #132b27;
+    --surface-muted: #0f2723;
+    --line: #223b37;
+    --line-strong: #2e4a45;
+    --divider: #1c3632;
+    --text: #e9efef;
+    --text-soft: #b9c7c3;
+    --text-muted: #9ab0ab;
+    --faint: #5e7a74;
+    --bar-dim: #3a5550;
+    --strong: #f2c14e;
+    --on-strong: #0b1f1c;
+    --highlight: #3a331a;
+    --link-hover: #f2c14e;
+    --focus: #f2c14e;
+    --contact-bg: #f2c14e;
+    --contact-text: #0b1f1c;
+    --contact-soft: #4a4423;
+    --contact-muted: #5a5226;
+    --contact-line: #d3a43d;
+    --contact-button-bg: #0b1f1c;
+    --contact-button-text: #f2c14e;
+    --brand-badge-bg: #f2c14e;
+    --brand-badge-text: #0b1f1c;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0b1f1c;
+  --surface: #132b27;
+  --surface-muted: #0f2723;
+  --line: #223b37;
+  --line-strong: #2e4a45;
+  --divider: #1c3632;
+  --text: #e9efef;
+  --text-soft: #b9c7c3;
+  --text-muted: #9ab0ab;
+  --faint: #5e7a74;
+  --bar-dim: #3a5550;
+  --strong: #f2c14e;
+  --on-strong: #0b1f1c;
+  --highlight: #3a331a;
+  --link-hover: #f2c14e;
+  --focus: #f2c14e;
+  --contact-bg: #f2c14e;
+  --contact-text: #0b1f1c;
+  --contact-soft: #4a4423;
+  --contact-muted: #5a5226;
+  --contact-line: #d3a43d;
+  --contact-button-bg: #0b1f1c;
+  --contact-button-text: #f2c14e;
+  --brand-badge-bg: #f2c14e;
+  --brand-badge-text: #0b1f1c;
   color-scheme: dark;
 }
 
@@ -30,32 +118,32 @@ html {
 
 body {
   margin: 0;
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-body);
-  font-size: 17px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
 a {
-  color: var(--color-text);
+  color: var(--text);
 }
 
 a:hover {
-  color: var(--color-accent);
+  color: var(--link-hover);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--focus);
   outline-offset: 3px;
 }
 
 h1,
 h2,
 h3 {
-  font-family: var(--font-display);
-  font-weight: 400;
+  margin: 0;
+  letter-spacing: -0.01em;
 }
 
 .container {
@@ -64,33 +152,11 @@ h3 {
   padding: 0 var(--page-gutter);
 }
 
-/* Vertical rhythm shared by every content section. */
-.section {
-  padding-top: 88px;
-  padding-bottom: 88px;
-}
-
-/*
- * Every other section sits on a slightly lighter band that runs edge to edge,
- * so sections read as separate blocks. The shadow extends the background past
- * the centered container; clip-path keeps it from spilling up or down.
- */
-.band {
-  background: var(--color-band);
-  box-shadow: 0 0 0 100vmax var(--color-band);
-  clip-path: inset(0 -100vmax);
-}
-
+/* Section headings share one look across the page. */
 .section-title {
-  margin: 0 0 8px;
-  font-size: 32px;
-}
-
-.section-note {
-  margin: 0 0 40px;
-  max-width: 60ch;
-  font-size: 15px;
-  color: var(--color-muted);
+  margin: 0 0 18px;
+  font-size: 22px;
+  font-weight: 600;
 }
 
 .visually-hidden {
@@ -108,8 +174,9 @@ h3 {
   top: -100px;
   z-index: 10;
   padding: 10px 16px;
-  background: var(--color-accent);
-  color: var(--color-on-accent);
+  border-radius: var(--radius-control);
+  background: var(--strong);
+  color: var(--on-strong);
   font-weight: 600;
 }
 
@@ -122,14 +189,19 @@ h3 {
     --page-gutter: 16px;
   }
 
-  .section {
-    padding-top: 56px;
-    padding-bottom: 56px;
+  .section-title {
+    font-size: 20px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
   }
 }

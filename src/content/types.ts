@@ -14,7 +14,8 @@ export interface Profile {
   intro: string;
   email: string;
   location: string;
-  facts: Fact[];
+  /** Short tags shown under the photo in the hero. */
+  tags: string[];
   links: {
     linkedin: string;
     github: string;
@@ -22,25 +23,31 @@ export interface Profile {
   };
 }
 
-/** One continuous stretch at a company, drawn as one bar on the timeline. */
+/** One continuous stretch at a company. */
 export interface Stint {
   from: YearMonth;
   /** Omit for the current role. */
   to?: YearMonth;
-  /** "intern" is drawn as an outlined bar. */
   kind?: "regular" | "intern";
 }
 
 export interface Job {
   company: string;
-  /** Short role and place line, e.g. "Backend, Lisbon (remote)". */
+  /** Role in a word or two, e.g. "Backend" or "Intern, then engineer". */
+  role: string;
+  /** Role and place, e.g. "Backend, Lisbon (remote)". */
   summary: string;
   stints: Stint[];
 }
 
-export interface SkillGroup {
+/** A chip in the tech stack row. The badge is a two-letter monogram, not a brand logo. */
+export interface Tech {
   name: string;
-  items: string[];
+  /** Shorter name for phones, when the full one is long. */
+  shortName?: string;
+  badge: string;
+  badgeBackground: string;
+  badgeColor: string;
 }
 
 export interface Principle {
@@ -58,6 +65,9 @@ export interface Freelance {
   offers: string[];
 }
 
+/** Which drawing heads a project card. Client work is under NDA, so these stand in for screenshots. */
+export type Illustration = "pass-rate" | "services" | "low-code";
+
 export interface WorkCase {
   company: string;
   from: YearMonth;
@@ -65,4 +75,5 @@ export interface WorkCase {
   title: string;
   description: string;
   stack: string[];
+  illustration: Illustration;
 }
