@@ -1,6 +1,9 @@
 import type { Principle } from "./types";
 
-/** "How I work": each point is backed by something I actually did. */
+/**
+ * "How I work": each point is backed by something I actually did.
+ * Not shown in the current layout; kept so the section can come back.
+ */
 export const principles: Principle[] = [
   {
     title: "Tests are part of the design",

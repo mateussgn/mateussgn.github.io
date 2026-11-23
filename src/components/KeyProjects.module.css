@@ -1,0 +1,125 @@
+.section {
+  padding-bottom: 80px;
+}
+
+.heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0 24px;
+}
+
+.note {
+  margin: 0 0 18px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.track {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 22px 22px;
+}
+
+.body p {
+  margin: 0;
+}
+
+.meta {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.title {
+  font-size: 19px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.description {
+  font-size: 14px;
+  color: var(--text-soft);
+}
+
+/* Pushed to the bottom so stacks line up across cards. */
+.body .stack {
+  margin-top: auto;
+  padding-top: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Dots only matter in the phone carousel. */
+.dots {
+  display: none;
+}
+
+@media (max-width: 860px) and (min-width: 641px) {
+  .track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Phones: one card at a time, the next one peeking in from the right. */
+@media (max-width: 640px) {
+  .section {
+    padding-bottom: 48px;
+  }
+
+  .note {
+    margin-top: -12px;
+    font-size: 13px;
+  }
+
+  .track {
+    display: flex;
+    gap: 12px;
+    margin-right: calc(-1 * var(--page-gutter));
+    padding-right: var(--page-gutter);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 0;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+  }
+
+  .track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    flex: 0 0 min(300px, 82%);
+    scroll-snap-align: start;
+  }
+
+  .body {
+    gap: 8px;
+    padding: 18px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .dots {
+    display: flex;
+  }
+}

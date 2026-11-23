@@ -1,26 +1,22 @@
 import { existsSync } from "node:fs";
 import path from "node:path";
-import { AboutSection } from "@/components/AboutSection";
-import { Career } from "@/components/Career";
-import { FreelanceSection } from "@/components/FreelanceSection";
-import { HowIWork } from "@/components/HowIWork";
-import { Skills } from "@/components/Skills";
-import { about, freelance } from "@/content/about";
-import { principles } from "@/content/principles";
-import { skills } from "@/content/skills";
-import { Contact } from "@/components/Contact";
+import { ClosingSections } from "@/components/ClosingSections";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { SelectedWork } from "@/components/SelectedWork";
+import { KeyProjects } from "@/components/KeyProjects";
+import { TechStack } from "@/components/TechStack";
+import { about } from "@/content/about";
 import { experience } from "@/content/experience";
 import { profile } from "@/content/profile";
+import { stack } from "@/content/stack";
 import { work } from "@/content/work";
-import { cvPath, siteUrl } from "@/lib/site";
+import { cvPath, photoPath, siteUrl } from "@/lib/site";
 
-// Runs at build time: the CV links appear only once the PDF is in public/.
-const hasCv = existsSync(path.join(process.cwd(), "public", cvPath));
-const cvHref = hasCv ? cvPath : undefined;
+// Runs at build time: optional files only show up once they're in public/.
+const publicFile = (file: string) => (existsSync(path.join(process.cwd(), "public", file)) ? file : undefined);
+const cvHref = publicFile(cvPath);
+const photoSrc = publicFile(photoPath);
 
 const personJsonLd = {
   "@context": "https://schema.org",
@@ -30,6 +26,7 @@ const personJsonLd = {
   jobTitle: profile.jobTitle,
   email: `mailto:${profile.email}`,
   url: siteUrl,
+  ...(photoSrc && { image: `${siteUrl}${photoSrc}` }),
   sameAs: [profile.links.linkedin, profile.links.github, profile.links.x],
   knowsAbout: ["Java", "Spring Boot", "React", "TypeScript", "Microservices", "AWS"],
   knowsLanguage: ["en", "pt-BR"],
@@ -42,16 +39,12 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
       />
-      <Header name={profile.name} />
+      <Header name={profile.name} githubUrl={profile.links.github} />
       <main id="main">
-        <Hero profile={profile} cvHref={cvHref} />
-        <Career jobs={experience} />
-        <SelectedWork cases={work} />
-        <HowIWork principles={principles} />
-        <Skills groups={skills} />
-        <AboutSection about={about} />
-        <FreelanceSection freelance={freelance} />
-        <Contact profile={profile} cvHref={cvHref} />
+        <Hero profile={profile} photoSrc={photoSrc} cvHref={cvHref} />
+        <TechStack items={stack} />
+        <KeyProjects cases={work} />
+        <ClosingSections about={about} jobs={experience} profile={profile} cvHref={cvHref} />
       </main>
       <Footer profile={profile} />
     </>

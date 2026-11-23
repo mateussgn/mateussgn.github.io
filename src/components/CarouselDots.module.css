@@ -1,0 +1,30 @@
+.dots {
+  justify-content: center;
+  margin-top: 8px;
+}
+
+/* The button is a 32x44 tap target; the visible dot is the span inside. */
+.dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.mark {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--bar-dim);
+  transition: width 200ms ease;
+}
+
+.active {
+  width: 22px;
+  background: var(--strong);
+}

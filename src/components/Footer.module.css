@@ -2,11 +2,19 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 12px;
+  gap: 4px 12px;
   padding-top: 24px;
   padding-bottom: 40px;
-  font-size: 14px;
-  color: var(--color-muted);
-  /* The rule spans the content width, inside the gutters. */
-  background: linear-gradient(var(--color-line), var(--color-line)) no-repeat top / calc(100% - 2 * var(--page-gutter)) 1px;
+  font-size: 13px;
+  color: var(--text-muted);
+  /* Rule above the footer, inside the page gutters. */
+  background: linear-gradient(var(--line), var(--line)) no-repeat top / calc(100% - 2 * var(--page-gutter)) 1px;
+}
+
+@media (max-width: 640px) {
+  .footer {
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 32px;
+  }
 }

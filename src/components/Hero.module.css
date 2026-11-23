@@ -1,10 +1,11 @@
 .hero {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 56px 72px;
-  padding-top: 112px;
-  padding-bottom: 72px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  padding-top: 88px;
+  padding-bottom: 80px;
 }
 
 .main {
@@ -13,61 +14,178 @@
 }
 
 .title {
-  margin: 0;
-  max-width: 13ch;
-  font-weight: 300;
-  font-size: clamp(3rem, 6vw + 1rem, 5.25rem);
-  line-height: 1.02;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.375rem, 3.5vw + 1rem, 3.625rem);
+  line-height: 1.06;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+}
+
+.headline {
+  color: var(--text-soft);
 }
 
 .intro {
-  margin: 36px 0 0;
-  max-width: 52ch;
-  font-size: 20px;
-  color: var(--color-text-soft);
+  margin: 24px 0 0;
+  max-width: 54ch;
+  font-size: 19px;
+  color: var(--text-soft);
 }
 
 .contacts {
-  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
 }
 
-.facts {
-  flex: 0 1 330px;
-  min-width: 0;
-  margin: 0;
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: var(--radius-control);
   font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
 }
 
-.fact {
-  padding: 14px 0;
-  border-top: 1px solid var(--color-line);
+.primary {
+  background: var(--strong);
+  color: var(--on-strong);
 }
 
-.fact:last-child {
-  border-bottom: 1px solid var(--color-line);
+.primary:hover {
+  color: var(--on-strong);
+  opacity: 0.9;
 }
 
-.fact dt {
-  color: var(--color-muted);
+.secondary {
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
 }
 
-.fact dd {
-  margin: 2px 0 0;
-  font-size: 18px;
+.cvShort {
+  display: none;
 }
 
+.aside {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar {
+  width: 232px;
+  height: 232px;
+  font-size: 64px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  max-width: 300px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.tags li {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+/* Phones: photo and tags move above the headline, contacts become full-width buttons. */
 @media (max-width: 640px) {
   .hero {
-    padding-top: 56px;
-    gap: 48px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .main {
+    flex: none;
+  }
+
+  .aside {
+    order: -1;
+    flex-direction: row;
+    gap: 14px;
+  }
+
+  .avatar {
+    width: 76px;
+    height: 76px;
+    font-size: 22px;
+  }
+
+  .tags {
+    justify-content: flex-start;
+    gap: 6px;
+    font-size: 12px;
+  }
+
+  .tags li {
+    padding: 3px 9px;
   }
 
   .intro {
+    margin-top: 18px;
     font-size: 17px;
   }
 
+  /* Email on its own row; the other links share the next row equally, however many there are. */
   .contacts {
-    margin-top: 24px;
+    gap: 8px;
+    margin-top: 26px;
+  }
+
+  .contacts li {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .contacts .emailItem {
+    flex-basis: 100%;
+  }
+
+  .primary,
+  .secondary {
+    width: 100%;
+    min-height: 46px;
+    padding: 0 8px;
+    font-size: 14px;
+  }
+
+  .primary {
+    min-height: 48px;
+    font-size: 15px;
+  }
+
+  .cvLong {
+    display: none;
+  }
+
+  .cvShort {
+    display: inline;
+  }
+
+  /* The download icon doesn't fit next to the short label. */
+  .secondary svg {
+    display: none;
   }
 }

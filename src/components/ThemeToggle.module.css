@@ -1,0 +1,47 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.toggle:hover {
+  color: var(--link-hover);
+}
+
+/* Light theme shows the moon (switch to dark); dark shows the sun. */
+.sun {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :global(:root:not([data-theme="light"])) .moon {
+    display: none;
+  }
+
+  :global(:root:not([data-theme="light"])) .sun {
+    display: block;
+  }
+}
+
+:global(:root[data-theme="dark"]) .moon {
+  display: none;
+}
+
+:global(:root[data-theme="dark"]) .sun {
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .toggle {
+    width: 44px;
+    height: 44px;
+  }
+}
